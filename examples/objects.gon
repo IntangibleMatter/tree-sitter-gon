@@ -1,0 +1,17 @@
+big_factory {
+	location "New York City"
+
+	whirly_widgets 8346
+	twirly_widgets 854687
+	girly_widgets 44336
+	burly_widgets 2673
+}
+
+little_factory {
+	location "My Basement"
+
+	whirly_widgets 10
+	twirly_widgets 15
+	girly_widgets 4
+	burly_widgets 1
+}
