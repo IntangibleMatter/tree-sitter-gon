@@ -217,17 +217,21 @@
       ]
     },
     "comment": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_line_comment"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_block_comment"
-        }
-      ]
+      "type": "PREC",
+      "value": 5,
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_line_comment"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_block_comment"
+          }
+        ]
+      }
     },
     "_line_comment": {
       "type": "SEQ",
@@ -260,7 +264,11 @@
         },
         {
           "type": "PATTERN",
-          "value": "(.|\\s)*?\\*\\/"
+          "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
         }
       ]
     }

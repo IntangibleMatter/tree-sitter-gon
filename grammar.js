@@ -28,8 +28,8 @@ export default grammar({
     number: ($) => prec(10, /([-+]?[0-9]*\.?[0-9]+)/),
     string: ($) => prec(1, /(("(?:[^"\\]|\\.)*")|([^(\s\,\[\{\}\]$)]+))/),
     boolean: ($) => choice("true", "false"),
-    comment: ($) => choice($._line_comment, $._block_comment),
+    comment: ($) => prec(5, choice($._line_comment, $._block_comment)),
     _line_comment: ($) => seq(choice("//", "#"), /.*?\n/),
-    _block_comment: ($) => seq("/*", /(.|\s)*?\*\//),
+    _block_comment: ($) => seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"),
   },
 });
