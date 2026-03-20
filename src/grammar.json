@@ -110,7 +110,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[\\w_]([\\w_]*)"
+      "value": "[\\w_]([\\w_\\.]*)"
     },
     "object": {
       "type": "SEQ",

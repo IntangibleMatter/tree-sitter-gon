@@ -21,7 +21,7 @@ export default grammar({
       ),
     _value: ($) => choice($.object, $.array, $.number, $.string, $.boolean),
     _block_value: ($) => prec(1, choice($.object, $.array)),
-    identifier: ($) => /[\w_]([\w_]*)/,
+    identifier: ($) => /[\w_]([\w_\.]*)/,
     object: ($) => seq("{", repeat(choice($.pair, $.comment)), "}"),
     array: ($) =>
       seq("[", repeat(choice(seq($._value, optional(",")), $.comment)), "]"),
