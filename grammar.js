@@ -23,7 +23,7 @@ export default grammar({
     string: ($) => prec(1, /(("(?:[^"\\]|\\.)*")|([^(\s\,\[\{\}\]$)]+))/),
     boolean: ($) => choice("true", "false"),
     comment: ($) => choice($._line_comment, $._block_comment),
-    _line_comment: ($) => seq("//", /.*?\n/),
+    _line_comment: ($) => seq(choice("//", "#"), /.*?\n/),
     _block_comment: ($) => seq("/*", /(.|\s)*?\*\//),
   },
 });
